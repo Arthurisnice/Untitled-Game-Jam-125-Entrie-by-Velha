@@ -2,7 +2,7 @@
   "$GMSprite":"v2",
   "%Name":"s_house_walls",
   "bboxMode":0,
-  "bbox_bottom":66,
+  "bbox_bottom":79,
   "bbox_left":8,
   "bbox_right":119,
   "bbox_top":0,
@@ -26,7 +26,7 @@
   "origin":0,
   "parent":{
     "name":"tiles",
-    "path":"folders/Sprites/tiles.yy",
+    "path":"folders/Sprites/general sprites/tiles.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

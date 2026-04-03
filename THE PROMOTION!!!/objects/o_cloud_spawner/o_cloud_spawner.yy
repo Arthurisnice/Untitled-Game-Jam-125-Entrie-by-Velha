@@ -10,8 +10,8 @@
   "name":"o_cloud_spawner",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"house and park",
+    "path":"folders/Objects/ZONES/house and park.yy",
   },
   "parentObjectId":null,
   "persistent":false,

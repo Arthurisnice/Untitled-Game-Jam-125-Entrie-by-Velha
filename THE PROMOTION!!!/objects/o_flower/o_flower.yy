@@ -10,13 +10,10 @@
   "name":"o_flower",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"house and park",
+    "path":"folders/Objects/ZONES/house and park.yy",
   },
-  "parentObjectId":{
-    "name":"o_rewindable_p",
-    "path":"objects/o_rewindable_p/o_rewindable_p.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

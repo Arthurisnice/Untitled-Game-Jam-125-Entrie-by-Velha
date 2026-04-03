@@ -1,6 +1,9 @@
 grv_streng=0.25
 grv_spd=0
 terminal_vel=10
+target_sdp=0
+spd_mult=1
+on_top_push_box=false
 
 loading_in_timer=500
 loading_screen=1
@@ -8,8 +11,12 @@ in_air=false
 coyote_max_t=10
 coyote_t=coyote_max_t
 
+room_at = 0
 
-h_spd=4
+text_alpha=0
+on_box=false
+
+h_spd=3
 //v_spd=2
 
 mov_h_spd=0

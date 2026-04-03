@@ -16,14 +16,18 @@ switch (state)
 		{
 			jump_timer=15
 			mov_v_spd=-jump_spd
+			on_box=false
 		}
 		if jump_timer>0 {jump_timer--}
 	
-
-	
+		//Box Moving Code
+	//________________	
+		
+				
+				
 		//Movment Speed Calculations
 	//________________
-	var target_sdp = h_spd*h_mov
+	target_sdp = (h_spd*h_mov)*spd_mult
 	var lerp_amt = 0.15
 	if mov_h_spd!=target_sdp
 	{
@@ -37,20 +41,26 @@ switch (state)
 		var sprite_w = (bbox_right - bbox_left + 1)/2 
 		var sprite_h = (bbox_bottom - bbox_top + 1)/2
 		
-		if place_meeting(x+mov_h_spd,y,o_wall)
+		var box_push = instance_nearest(x,y,o_pushable_block)
+		
+		if place_meeting(x+mov_h_spd,y,o_wall) or (place_meeting(x+mov_h_spd,y,o_pushable_block) && box_push.touching==true)
 		{
 			mov_h_spd=0
 		}
 		
 		//Main Movment Code
 	//________________
+	
+		if on_box==true {mov_v_spd=0}
+				
 		x+=mov_h_spd
 		y+=mov_v_spd
 
 		//vertical Check
 	//________________		
-
-		if place_meeting(x,y+1,o_wall) {in_air=false; coyote_t=coyote_max_t}
+		
+		
+		if place_meeting(x,y+1,o_wall) or (place_meeting(x,y+2,o_pushable_block) && box_push.y>bbox_bottom) {in_air=false; coyote_t=coyote_max_t}
 		else 
 		{
 			if coyote_t>0 {coyote_t--}
@@ -58,12 +68,12 @@ switch (state)
 		}
 
 
-		if place_meeting(x,y+mov_v_spd+1,o_wall) {mov_v_spd=0}
+		if place_meeting(x,y+mov_v_spd+1,o_wall) or (place_meeting(x,y+mov_v_spd+2,o_pushable_block) && box_push.y>bbox_bottom)  {mov_v_spd=0}
 		else
 		{
 			if mov_v_spd<terminal_vel {mov_v_spd+=grv_streng}
 		}
-		if place_meeting(x,y-1,o_wall) {y++}
+		
 	
 	
 		
@@ -72,15 +82,17 @@ switch (state)
 	//________________
 		
 		if h_mov!=0 {image_xscale=h_mov}
-		if mov_h_spd!=0 && in_air==false
+		if round(mov_h_spd)!=0 && in_air==false
 		{ 
 			if sprite_index!=s_player_walk {sprite_index=s_player_walk}	
-			image_speed=(mov_h_spd/h_spd)
+			image_speed=abs(mov_h_spd/h_spd)
+			if image_speed==0{image_index=0}
 			rando_timer=500+irandom(300)
 			idle_play=false
 		}
-		if mov_h_spd==0 && in_air==false
+		if round(mov_h_spd)==0 && in_air==false
 		{	
+			image_speed=1
 			if sprite_index==s_player_walk || sprite_index==s_player_falling {sprite_index=s_player_idle_m}	
 			if rando_timer>0 && idle_play==false {rando_timer--;}
 			else if rando_timer==0 && idle_play==false
@@ -104,6 +116,8 @@ switch (state)
 						break;
 				}
 			}
+			
+
 		
 			
 			if idle_play==true && image_index>=sprite_get_number(sprite_index)-0.5
@@ -135,16 +149,19 @@ switch (state)
 			rewind_rand=irandom(1)==1? 1: -1;
 		}
 		
-		camera.zoom_val=lerp(camera.zoom_val,2,0.1)
+		camera.zoom_val=lerp(camera.zoom_val,camera.defalut_zoom_val,0.05)
+	
+	
 	}
 	break;
 	
 	case "rewind":
 	{
+		
 		if mouse_check_button(mb_right)
 		{
 			//zooms in the camera slowly
-				camera.zoom_val=lerp(camera.zoom_val,4,0.1)
+				camera.zoom_val=lerp(camera.zoom_val,4,0.05)
 			
 				if image_index>=image_number-1 && sprite_index=s_player_mind_start
 				{
@@ -155,9 +172,10 @@ switch (state)
 		//________________	
 			if keyboard_check_pressed(ord("W")) && in_air==false && jump_timer==0
 			{
-				var temp_jump_amt = 1
+				var temp_jump_amt = 3
 				jump_timer=30
 				mov_v_spd=-temp_jump_amt
+				on_box=false
 			}
 			if jump_timer>0 {jump_timer--}
 		
@@ -165,10 +183,12 @@ switch (state)
 			//Movent speed Calc 2
 		//________________
 			var h_mov = (keyboard_check(ord("D"))-keyboard_check(ord("A")))
+			
+			if h_mov!=0 {image_xscale=h_mov}
 		
 			var temp_h_spd=0.5
 			
-			var target_sdp = temp_h_spd*h_mov
+			target_sdp = temp_h_spd*h_mov
 			var lerp_amt = 0.05
 			if mov_h_spd!=target_sdp
 			{
@@ -176,46 +196,66 @@ switch (state)
 			}
 			//horizontal Check 2
 		//________________
+		
+			var box_push = instance_nearest(x,y,o_pushable_block)
+		
 			var sprite_w = (bbox_right - bbox_left + 1)/2 
 			var sprite_h = (bbox_bottom - bbox_top + 1)/2
 		
-			if place_meeting(x+mov_h_spd,y,o_wall)
+			if place_meeting(x+mov_h_spd,y,o_wall) or (place_meeting(x+mov_h_spd,y,o_pushable_block) && box_push.touching==true)
 			{
 				mov_h_spd=0
 			}
 		
 			//Main Movment Code 2
 		//________________
+		
+			if on_box==true {mov_v_spd=0}	
+			
 			x+=mov_h_spd
 			y+=mov_v_spd
 			
 			//vertical Check 2
 		//________________			
 			
-			if place_meeting(x,y+1,o_wall) {in_air=false; coyote_t=coyote_max_t}
+			
+			if place_meeting(x,y+1,o_wall) or (place_meeting(x,y+1,o_pushable_block) && box_push.y>bbox_bottom)  {in_air=false; coyote_t=coyote_max_t}
 			else 
 			{
 				if coyote_t>0 {coyote_t--}
 				if coyote_t==0 {in_air=true}
 			}
 			
-			if place_meeting(x,y+mov_v_spd+1,o_wall){mov_v_spd=0}
+			if place_meeting(x,y+mov_v_spd+1,o_wall) or (place_meeting(x,y+mov_v_spd+1,o_pushable_block) && box_push.y>bbox_bottom) {mov_v_spd=0}
 			else
 			{
-				var temp_term = 0.5
-				var temp_grv = 0.01
+				var temp_term = 3
+				var temp_grv = 0.1
 				if mov_v_spd<temp_term {mov_v_spd+=temp_grv}
 			}
-			if place_meeting(x,y-1,o_wall) {y++}
 			
 		}
 		else {state = "move"; sprite_index=s_player_idle_m}
+		
 		
 		
 	}
 	break;
 	
 	case "idle":
+	{
+		image_speed=1
+		sprite_index=s_player_idle_m
+	}
+	break;
+	
+	case "animate":
+	{
+		
+	}
+	break;
+	
+	case "none":
 	{
 		
 	}
@@ -224,4 +264,5 @@ switch (state)
 
 
 
+if keyboard_check_pressed(ord("R")) {room_restart()}
 

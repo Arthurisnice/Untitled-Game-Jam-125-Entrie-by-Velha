@@ -26,7 +26,7 @@
   "origin":0,
   "parent":{
     "name":"house_sprites",
-    "path":"folders/Sprites/house_sprites.yy",
+    "path":"folders/Sprites/ZONES/house_sprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

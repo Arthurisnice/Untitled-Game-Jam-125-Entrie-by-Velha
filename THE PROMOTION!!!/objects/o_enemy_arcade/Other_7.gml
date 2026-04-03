@@ -1,0 +1,1 @@
+if sprite_index=s_arcade_enemy_base {sprite_index=s_arcade_enemy_standby}

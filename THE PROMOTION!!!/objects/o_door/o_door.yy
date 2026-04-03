@@ -10,8 +10,8 @@
   "name":"o_door",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Genral Objects",
+    "path":"folders/Objects/Genral Objects.yy",
   },
   "parentObjectId":null,
   "persistent":false,

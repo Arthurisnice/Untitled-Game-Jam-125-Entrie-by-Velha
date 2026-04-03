@@ -3,13 +3,14 @@
   "%Name":"o_zone",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"o_zone",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Genral Objects",
+    "path":"folders/Objects/Genral Objects.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -34,5 +35,5 @@
     "path":"sprites/s_rewind_zone/s_rewind_zone.yy",
   },
   "spriteMaskId":null,
-  "visible":false,
+  "visible":true,
 }

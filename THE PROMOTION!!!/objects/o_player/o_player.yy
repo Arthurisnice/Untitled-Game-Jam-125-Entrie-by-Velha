@@ -10,8 +10,8 @@
   "name":"o_player",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Genral Objects",
+    "path":"folders/Objects/Genral Objects.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -35,6 +35,9 @@
     "name":"s_player_base",
     "path":"sprites/s_player_base/s_player_base.yy",
   },
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"s_player_base",
+    "path":"sprites/s_player_base/s_player_base.yy",
+  },
   "visible":true,
 }

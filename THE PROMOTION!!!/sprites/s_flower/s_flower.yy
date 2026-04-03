@@ -47,7 +47,7 @@
   "origin":0,
   "parent":{
     "name":"street sprites",
-    "path":"folders/Sprites/street sprites.yy",
+    "path":"folders/Sprites/ZONES/street sprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

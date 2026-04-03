@@ -32,6 +32,5 @@ if closed=false
 		image_speed=0
 		closed=true
 	}
-	if timer<=1 {show_debug_message(image_index)}
 }
 

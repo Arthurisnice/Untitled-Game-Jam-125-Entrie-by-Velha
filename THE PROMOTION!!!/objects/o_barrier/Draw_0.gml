@@ -1,0 +1,1 @@
+draw_sprite(sprite_index,image_index,org_x,org_y)

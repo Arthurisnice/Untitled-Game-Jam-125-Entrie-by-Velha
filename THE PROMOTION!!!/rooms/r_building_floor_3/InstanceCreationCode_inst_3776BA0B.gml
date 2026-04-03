@@ -1,0 +1,11 @@
+target_x=0
+target_y=384
+move_spd=2
+return_spd=2
+type="vertical"
+max_timer=60
+spiked=true
+spike_up=0
+spike_down=1
+spike_left=0
+spike_right=0
