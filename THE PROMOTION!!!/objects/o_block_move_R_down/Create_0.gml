@@ -13,6 +13,8 @@ timer=0
 rand=irandom(1)
 if rand==0 {rand=-1}
 rot=0
+og_depth=depth
+rew_timer=0
 
 /*
 target_x=

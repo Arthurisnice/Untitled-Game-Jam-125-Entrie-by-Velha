@@ -11,8 +11,8 @@
   "name":"o_barrier",
   "overriddenProperties":[],
   "parent":{
-    "name":"room_5 stuff",
-    "path":"folders/Objects/ZONES/room_5 stuff.yy",
+    "name":"room_4 stuff",
+    "path":"folders/Objects/ZONES/room_4 stuff.yy",
   },
   "parentObjectId":{
     "name":"o_wall",

@@ -1,5 +1,6 @@
-if place_meeting(x,y,o_player) && keyboard_check_pressed(ord("E")) && done==false
+if place_meeting(x,y,o_player) && keyboard_check_pressed(ord("E")) && done==false && o_enemy_arcade.dialogue==o_enemy_arcade.text_arr_2 && start==false
 {
+	start=true
 	timer=5*60
 	sprite_index = s_arcade_yours
 	o_player.y = o_player.y-4
@@ -9,7 +10,8 @@ if place_meeting(x,y,o_player) && keyboard_check_pressed(ord("E")) && done==fals
 }
 	
 if timer>0 {timer--}
-if timer==0 {on=true; o_enemy_arcade.sprite_index=s_arcade_enemy}
+if timer==0 && on==false {audio_play_sound(x_start,1,false,1,0,1); audio_play_sound(x_song_ddr,1,false,1,0,1)}
+if timer==0 {on=true; o_enemy_arcade.sprite_index=s_arcade_enemy;}
 	
 if on=true 
 {
@@ -20,12 +22,16 @@ if on=true
 			image_index=irandom(2)
 			score_arc+=5
 			color=c_green
+			txt_timer=5
+			audio_play_sound(x_ddr_right,1,false,1,0,1)
 		}
 		else if keyboard_check_pressed(vk_anykey)
 		{
 			image_index=irandom(2)
 			score_arc-=2
 			color=c_red
+			txt_timer=5
+			audio_play_sound(x_ddr_wrong,1,false,1,0,1)
 		}
 	}
 	else if image_index==1
@@ -35,12 +41,16 @@ if on=true
 			image_index=irandom(2)
 			score_arc+=5
 			color=c_green
+			txt_timer=5
+			audio_play_sound(x_ddr_right,1,false,1,0,1)
 		}
 		else if keyboard_check_pressed(vk_anykey)
 		{
 			image_index=irandom(2)
 			score_arc-=2
 			color=c_red
+			txt_timer=5
+			audio_play_sound(x_ddr_wrong,1,false,1,0,1)
 		}
 	}
 	else if image_index==2
@@ -50,12 +60,16 @@ if on=true
 			image_index=irandom(2)
 			score_arc+=5
 			color=c_green
+			txt_timer=5
+			audio_play_sound(x_ddr_right,1,false,1,0,1)
 		}
 		else if keyboard_check_pressed(vk_anykey)
 		{
 			image_index=irandom(2)
 			score_arc-=2
 			color=c_red
+			txt_timer=5
+			audio_play_sound(x_ddr_wrong,1,false,1,0,1)
 		}
 	}
 	

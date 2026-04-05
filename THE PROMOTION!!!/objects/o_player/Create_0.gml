@@ -11,16 +11,26 @@ in_air=false
 coyote_max_t=10
 coyote_t=coyote_max_t
 
+sound_per_aniim=0
+circle_alpha=0
+
+click=false
+
 room_at = 0
 
 text_alpha=0
 on_box=false
+on_wall=false
+
+room_timer=0
 
 h_spd=3
 //v_spd=2
 
 mov_h_spd=0
 mov_v_spd=0
+
+previus_v_spd=mov_v_spd
 
 state="move"
 
@@ -46,3 +56,4 @@ rew_prev_y=rewind_y
 
 coll_x=0
 coll_y=0
+

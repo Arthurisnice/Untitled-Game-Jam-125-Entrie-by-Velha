@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"x_song_ddr",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":3,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":16.999638,
+  "exportDir":"",
+  "name":"x_song_ddr",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":22050,
+  "soundFile":"x_song_ddr.wav",
+  "volume":1.0,
+}

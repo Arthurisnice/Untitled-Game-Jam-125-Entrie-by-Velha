@@ -1,4 +1,4 @@
-if o_player.state=="rewind" && mouse_check_button(mb_right)
+if o_player.state=="rewind" && o_player.click==true
 {
 	if place_meeting(x,y,o_zone)
 	{

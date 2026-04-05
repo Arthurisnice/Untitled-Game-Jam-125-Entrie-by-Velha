@@ -1,0 +1,11 @@
+target_x=0
+target_y=y-sprite_height
+move_spd=1
+return_spd=2
+type="vertical"
+max_timer=180
+spiked=true
+spike_up=0
+spike_down=1
+spike_left=0
+spike_right=0

@@ -5,8 +5,9 @@ var dis = point_distance(o_player.x,o_player.y,x+sprite_width/2,y+sprite_height/
 if dis<100 
 {
 	var amt = 1-dis/100
+	amt=clamp(amt,0,1)
 		
-	draw_set_alpha(amt)
+	draw_set_alpha(amt*2)
 	draw_sprite(s_fountain_ovl,0,x,y)
 	draw_set_alpha(1)
 }
@@ -33,6 +34,9 @@ if place_meeting(x,y,o_player)
 		{
 			o_player.state="animate"
 			yes=true
+			var rand = random(0.2)-0.1
+			if !audio_is_playing(x_coin_toss) {audio_play_sound(x_coin_toss,0,false,1,0,1+rand)}
+	
 		}
 		if place_meeting(x,y,o_player) && yes=true
 		{
@@ -54,8 +58,8 @@ if place_meeting(x,y,o_player)
 			{
 				camera.zoom_val=camera.defalut_zoom_val
 				state="move"	
-				var rnd = irandom(20)
-				if rnd==0 {url_open("https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1")}
+				var rnd = irandom(10)
+				if rnd==0 {instance_create_depth(o_player.x+20,o_player.y-100,depth-1,o_spwaner_6)}
 				show_debug_message(rnd)
 				o_player.state="move"
 				o_player.sprite_index=s_player_idle_m

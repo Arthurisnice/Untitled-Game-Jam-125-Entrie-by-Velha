@@ -8,7 +8,6 @@ var y_leng = path_get_y(p_path_1,traveled/leng)
 target_x=x_leng
 target_y=y_leng
 
-
 var in_circle = collision_circle(x_leng+sprite_width/2,y_leng,circle_size,o_zone,true,true)
 
 var spd=move_spd/return_spd
@@ -103,4 +102,10 @@ if spiked==true
 			room_restart()
 		}
 	}
+}
+
+
+if xprevious!=x or yprevious!=y
+{	
+	audio_play_sound(x_block_move,1,false,1,0,1+random(0.1)-0.2)
 }

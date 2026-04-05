@@ -1,11 +1,11 @@
 var player_side = x+sprite_width/2>o_player.x? 1:-1;
 
-
-
-
 var in_circle = collision_circle(x+sprite_width/2,y+sprite_height/2,circle_size,o_zone,true,true)
 
-if in_circle {timer=max_timer}
+if in_circle 
+{
+	timer=max_timer
+}
 
 if timer>0 {timer--}
 
@@ -19,6 +19,14 @@ if type="horizontal"
 	if in_circle && x-spd_h>target_x
 	{
 		x=target_x
+			if place_meeting(x+spd_h,y,o_player)
+			{
+				
+				var midle_x = x+sprite_width/2
+				var dir_s = o_player.x>midle_x? 1:-1;
+				o_player.mov_h_spd=0
+				o_player.x=midle_x+(sprite_width/2*dir_s)+4*dir_s
+			}
 		target_spd=0
 		spd_h=0
 	}
@@ -35,6 +43,14 @@ if type="horizontal"
 		else 
 		{
 			x=target_x
+			if place_meeting(x+spd_h,y,o_player)
+			{
+				
+				var midle_x = x+sprite_width/2
+				var dir_s = o_player.x>midle_x? 1:-1;
+				o_player.mov_h_spd=0
+				o_player.x=midle_x+(sprite_width/2*dir_s)+4*dir_s
+			}
 			target_spd=0
 			spd_h=0
 		}
@@ -52,6 +68,14 @@ if type="horizontal"
 	if !in_circle && x-spd_h<start_x
 	{
 		x=start_x
+			if place_meeting(x+spd_h,y,o_player)
+			{
+				
+				var midle_x = x+sprite_width/2
+				var dir_s = o_player.x>midle_x? 1:-1;
+				o_player.mov_h_spd=0
+				o_player.x=midle_x+(sprite_width/2*dir_s)+4*dir_s
+			}
 		target_spd=0
 		spd_h=0
 	}
@@ -81,10 +105,14 @@ if type="horizontal"
 
 	if place_meeting(x,y-1,o_player)
 	{
-		o_player.x+=spd_h
+		with (o_player)
+		{
+			if !place_meeting(x+other.spd_h,y,o_wall)
+			{
+				x+=other.spd_h
+			}
+		}
 	}
-	
-
 	
 }
 else if type=="vertical"
@@ -97,6 +125,13 @@ else if type=="vertical"
 	if in_circle && y-spd_h>target_y
 	{
 		y=target_y
+		if place_meeting(x,y+spd_h,o_player)
+		{
+			var midle_y = y+sprite_height/2
+			var dir_s = o_player.y>midle_y? 1:-1;
+			o_player.y=midle_y+sprite_height/2*dir_s+o_player.sprite_height/2*dir_s
+			o_player.mov_v_spd=0
+		}
 		target_spd=0
 		spd_h=0
 	}
@@ -113,6 +148,13 @@ else if type=="vertical"
 		else 
 		{
 			y=target_y
+			if place_meeting(x,y+spd_h,o_player)
+			{
+				var midle_y = y+sprite_height/2
+				var dir_s = o_player.y>midle_y? 1:-1;
+				o_player.y=midle_y+sprite_height/2*dir_s+o_player.sprite_height/2*dir_s
+				o_player.mov_v_spd=0
+		}
 			target_spd=0
 			spd_h=0
 		}
@@ -130,6 +172,13 @@ else if type=="vertical"
 	if !in_circle && y-spd_h<start_y
 	{
 		y=start_y
+		if place_meeting(x,y+spd_h,o_player)
+		{
+			var midle_y = y+sprite_height/2
+			var dir_s = o_player.y>midle_y? 1:-1;
+			o_player.y=midle_y+sprite_height/2*dir_s+o_player.sprite_height/2*dir_s
+			o_player.mov_v_spd=0
+		}
 		target_spd=0
 		spd_h=0
 	}

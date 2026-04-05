@@ -1,3 +1,26 @@
+previus_v_spd=mov_v_spd
+
+if loading_in_timer<=0
+{
+	room_timer++
+}
+
+if keyboard_check(ord("C")) or mouse_check_button(mb_left)
+{
+	with(o_cursor)
+	{
+		if !place_meeting(x,y,o_menu_button) && !place_meeting(x,y,o_restart_button)
+		{
+			o_player.click=true
+		}
+	}
+	
+}
+else
+{
+	click=false
+}
+
 //STATE MACHINE
 
 switch (state)
@@ -12,8 +35,14 @@ switch (state)
 
 		//Jump Speed Code
 	//________________	
+	var box_push = instance_nearest(x,y,o_pushable_block)
+	
+	if place_meeting(x,y+2,o_wall) or (place_meeting(x,y+2,o_pushable_block) && box_push.y>bbox_bottom)  {in_air=false; coyote_t=coyote_max_t}
+
 		if keyboard_check_pressed(ord("W")) && jump_timer==0 && in_air==false
 		{
+			var rand = random(0.8)-0.4
+			audio_play_sound(x_jump,0,false,1,0,1+rand)
 			jump_timer=15
 			mov_v_spd=-jump_spd
 			on_box=false
@@ -41,12 +70,14 @@ switch (state)
 		var sprite_w = (bbox_right - bbox_left + 1)/2 
 		var sprite_h = (bbox_bottom - bbox_top + 1)/2
 		
-		var box_push = instance_nearest(x,y,o_pushable_block)
+		
 		
 		if place_meeting(x+mov_h_spd,y,o_wall) or (place_meeting(x+mov_h_spd,y,o_pushable_block) && box_push.touching==true)
 		{
+			on_wall=true
 			mov_h_spd=0
 		}
+		else {on_wall=false}
 		
 		//Main Movment Code
 	//________________
@@ -68,7 +99,7 @@ switch (state)
 		}
 
 
-		if place_meeting(x,y+mov_v_spd+1,o_wall) or (place_meeting(x,y+mov_v_spd+2,o_pushable_block) && box_push.y>bbox_bottom)  {mov_v_spd=0}
+		if place_meeting(x,y+mov_v_spd+1,o_wall) or (place_meeting(x,y+mov_v_spd+2,o_pushable_block) && box_push.y>bbox_bottom)  {mov_v_spd=0;}
 		else
 		{
 			if mov_v_spd<terminal_vel {mov_v_spd+=grv_streng}
@@ -133,7 +164,7 @@ switch (state)
 		
 			//Rewind start Code:
 	//________________	
-		if mouse_check_button_pressed(mb_right)
+		if click==true
 		{
 			state="rewind"
 			sprite_index=s_player_mind_start
@@ -158,7 +189,7 @@ switch (state)
 	case "rewind":
 	{
 		
-		if mouse_check_button(mb_right)
+		if click==true
 		{
 			//zooms in the camera slowly
 				camera.zoom_val=lerp(camera.zoom_val,4,0.05)
@@ -170,8 +201,15 @@ switch (state)
 		
 			//Jump Speed Code 2
 		//________________	
+			var box_push = instance_nearest(x,y,o_pushable_block)
+	
+			if place_meeting(x,y+2,o_wall) or (place_meeting(x,y+2,o_pushable_block) && box_push.y>bbox_bottom)  {in_air=false; coyote_t=coyote_max_t}
+
+		
 			if keyboard_check_pressed(ord("W")) && in_air==false && jump_timer==0
 			{
+				var rand = random(0.8)-0.4
+				audio_play_sound(x_jump,0,false,1,0,0.8+rand)
 				var temp_jump_amt = 3
 				jump_timer=30
 				mov_v_spd=-temp_jump_amt
@@ -197,15 +235,16 @@ switch (state)
 			//horizontal Check 2
 		//________________
 		
-			var box_push = instance_nearest(x,y,o_pushable_block)
 		
 			var sprite_w = (bbox_right - bbox_left + 1)/2 
 			var sprite_h = (bbox_bottom - bbox_top + 1)/2
 		
 			if place_meeting(x+mov_h_spd,y,o_wall) or (place_meeting(x+mov_h_spd,y,o_pushable_block) && box_push.touching==true)
 			{
+				on_wall=true
 				mov_h_spd=0
 			}
+			else {on_wall=false}
 		
 			//Main Movment Code 2
 		//________________
@@ -219,7 +258,7 @@ switch (state)
 		//________________			
 			
 			
-			if place_meeting(x,y+1,o_wall) or (place_meeting(x,y+1,o_pushable_block) && box_push.y>bbox_bottom)  {in_air=false; coyote_t=coyote_max_t}
+			if place_meeting(x,y+2,o_wall) or (place_meeting(x,y+2,o_pushable_block) && box_push.y>bbox_bottom)  {in_air=false; coyote_t=coyote_max_t}
 			else 
 			{
 				if coyote_t>0 {coyote_t--}
@@ -261,6 +300,7 @@ switch (state)
 	}
 	break;
 } 
+
 
 
 

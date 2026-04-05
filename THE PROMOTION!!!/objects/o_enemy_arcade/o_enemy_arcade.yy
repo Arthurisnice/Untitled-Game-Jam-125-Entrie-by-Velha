@@ -11,8 +11,8 @@
   "name":"o_enemy_arcade",
   "overriddenProperties":[],
   "parent":{
-    "name":"room_5 stuff",
-    "path":"folders/Objects/ZONES/room_5 stuff.yy",
+    "name":"room_4 stuff",
+    "path":"folders/Objects/ZONES/room_4 stuff.yy",
   },
   "parentObjectId":null,
   "persistent":false,

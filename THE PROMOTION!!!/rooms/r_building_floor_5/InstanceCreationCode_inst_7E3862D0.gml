@@ -1,0 +1,11 @@
+target_x=908
+target_y=0
+move_spd=1.5
+return_spd=0.5
+type="horizontal"
+max_timer=0
+spiked=false
+spike_up=0
+spike_down=0
+spike_left=0
+spike_right=0

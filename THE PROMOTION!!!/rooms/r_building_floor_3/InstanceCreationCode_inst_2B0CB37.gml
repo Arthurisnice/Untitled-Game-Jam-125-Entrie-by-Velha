@@ -1,7 +1,7 @@
 move_spd=3
 return_spd=12
 type="horizontal"
-max_timer=30
+max_timer=9999
 spiked=true
 spike_up=0
 spike_down=0

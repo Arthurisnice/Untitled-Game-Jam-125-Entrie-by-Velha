@@ -1,0 +1,1 @@
+draw_sprite_ext(s_title_ghost,0,x,y,image_xscale,image_yscale,0,my_color,1)

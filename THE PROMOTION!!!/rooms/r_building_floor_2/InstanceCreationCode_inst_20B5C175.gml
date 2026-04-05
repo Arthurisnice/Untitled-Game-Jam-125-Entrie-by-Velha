@@ -1,9 +1,9 @@
-target_x=208
-target_y=132
+target_x=180
+target_y=y-sprite_height
 move_spd=2
-return_spd=5
+return_spd=4
 type="vertical"
-max_timer=0
+max_timer=500
 spiked=true
 spike_up=0
 spike_down=1

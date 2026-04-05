@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"x_clock_tick",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":1,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":21.048162,
+  "exportDir":"",
+  "name":"x_clock_tick",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":11025,
+  "soundFile":"x_clock_tick.wav",
+  "volume":0.6,
+}

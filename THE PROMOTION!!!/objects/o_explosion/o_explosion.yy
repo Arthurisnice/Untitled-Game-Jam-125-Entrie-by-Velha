@@ -8,8 +8,8 @@
   "name":"o_explosion",
   "overriddenProperties":[],
   "parent":{
-    "name":"room_4 spawners",
-    "path":"folders/Objects/ZONES/room_4 spawners.yy",
+    "name":"room_5 spawners",
+    "path":"folders/Objects/ZONES/room_5 spawners.yy",
   },
   "parentObjectId":null,
   "persistent":false,

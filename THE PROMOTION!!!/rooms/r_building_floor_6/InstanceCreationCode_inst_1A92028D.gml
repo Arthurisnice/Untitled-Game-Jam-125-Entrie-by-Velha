@@ -1,0 +1,11 @@
+target_x=x-sprite_width/2
+target_y=0
+move_spd=2
+return_spd=1
+type="horizontal"
+max_timer=120
+spiked=false
+spike_up=0
+spike_down=0
+spike_left=0
+spike_right=0

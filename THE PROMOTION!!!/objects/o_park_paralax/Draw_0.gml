@@ -36,3 +36,6 @@ var amt_d_6 = 6*mulit
 var displace_6 = (dist/room_width)*amt_d_5-(amt_d_6/2)
 var lay_id_6 = layer_get_id("bushes_4_bk")
 layer_x(lay_id_6, displace_6)
+
+
+

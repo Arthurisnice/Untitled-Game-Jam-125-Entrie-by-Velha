@@ -30,7 +30,20 @@ else if traveled<0
 	spd_h=0
 }
 
-if !place_meeting(x+target_spd,y,o_blocks_parent)
+if place_meeting(x,y,o_player)
+{
+	
+			if place_meeting(x+spd_h,y,o_player)
+			{
+				
+				var midle_x = x+sprite_width/2
+				var dir_s = o_player.x>midle_x? 1:-1;
+				o_player.mov_h_spd=0
+				o_player.x=midle_x+(sprite_width/2*dir_s)+4*dir_s
+			}
+}
+
+if !place_meeting(x+target_spd+spd_h,y,o_blocks_parent)
 {
 	spd_h=lerp(spd_h,target_spd,0.01)
 

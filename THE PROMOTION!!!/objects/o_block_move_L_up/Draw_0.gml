@@ -38,6 +38,18 @@ if timer<max_timer*0.3
 	if x==target_x or y==target_y {amnt = random(timer_shake)}
 }
 
+if amnt!=0 
+{
+	var rand_1=irandom(15)
+	var rand_2=irandom(14)
+	if rand_1==rand_2
+	{
+		audio_play_sound(x_block_shake,1,false,1,0,1+random(0.1)-0.2)
+	}
+}
+
+shake_prev=amnt
+
 var color = in_circle? 1: 0;
 
 draw_sprite_ext(sprite_index,color,x+amnt,y+amnt,image_xscale,image_yscale,0,c_white,1)
@@ -104,4 +116,14 @@ if spiked==true
 			room_restart()
 		}
 	}
+}
+
+var spd_mov = (abs(point_distance(xprevious,yprevious,x,y)/target_spd)*-1+1)*10
+
+if rew_timer<spd_mov {rew_timer++}
+
+if rew_timer>=spd_mov && spd_mov!=0
+{	
+	rew_timer=0
+	audio_play_sound(x_block_move,1,false,1,0,1+random(0.1)-0.2)
 }

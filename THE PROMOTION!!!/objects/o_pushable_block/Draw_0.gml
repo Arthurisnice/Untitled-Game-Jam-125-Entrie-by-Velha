@@ -13,7 +13,7 @@ y+=grv_spd
 
 var side = x<o_player.x? 1:-1;
 
-if place_meeting(x-o_player.mov_h_spd,y,o_player) && !place_meeting((o_player.x+(4*-side))-sprite_width/2*side,y,o_wall) && touching==false && o_player.bbox_bottom<bbox_bottom
+if place_meeting(x-o_player.mov_h_spd,y,o_player) && touching==false && o_player.bbox_bottom<bbox_bottom
 {
 	x=(o_player.x+(4*-side))-sprite_width/2*side
 }

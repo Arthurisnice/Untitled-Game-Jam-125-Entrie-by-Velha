@@ -1,0 +1,11 @@
+target_x=1912
+target_y=0
+move_spd=1
+return_spd=0.5
+type="horizontal"
+max_timer=60
+spiked=true
+spike_up=0
+spike_down=0
+spike_left=1
+spike_right=1

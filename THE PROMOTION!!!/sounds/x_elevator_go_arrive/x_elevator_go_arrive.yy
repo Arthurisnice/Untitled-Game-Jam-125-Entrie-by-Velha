@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"x_elevator_go_arrive",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":3,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":4.934325,
+  "exportDir":"",
+  "name":"x_elevator_go_arrive",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":5512,
+  "soundFile":"x_elevator_go_arrive.mp3",
+  "volume":0.2,
+}
